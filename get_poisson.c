@@ -12,8 +12,8 @@ int main()
 　　int p;
 　　int i=0;
 　　for(i=0;i<20;i++){
-　　p=possion();
-      printf("%d ",p);
+　　    p=possion();
+        printf("%d ",p);
 　　}
 　　printf("\n");
 　　return 0;
