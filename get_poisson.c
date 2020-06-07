@@ -1,5 +1,5 @@
 // https://www.cnblogs.com/liam-ji/p/11679026.html
-https://www.cnblogs.com/liam-ji/p/11623024.html
+// https://www.cnblogs.com/liam-ji/p/11623024.html
 
 #include<stdio.h>
 #include<stdlib.h>
