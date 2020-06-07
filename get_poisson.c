@@ -1,43 +1,39 @@
 // https://www.cnblogs.com/liam-ji/p/11679026.html
 https://www.cnblogs.com/liam-ji/p/11623024.html
 
-#include "math.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+double U_Random();
+int possion();
 
-/************************************
-	a		---给定区间下限
-	b		---给定区间上限
-	seed	---随机数种子
-************************************/
-double uniform(double a, double b, long int *seed)
+int main()
 {
-	double t;
-	*seed = 2045 * (*seed) + 1;
-	*seed = *seed - (*seed / 1048576);
-	t = (*seed) / 1048576.0;
-	t = a + (b - a) * t;
-	return(t);
+　　int p;
+　　int i=0;
+　　for(i=0;i<20;i++){
+　　p=possion();
+      printf("%d ",p);
+　　}
+　　printf("\n");
+　　return 0;
 }
-
-/************************************
-	lambda  ---泊松分布均值lambda
-	s       ---随机数种子
-************************************/
-int poisson(double lambda, long int *s)
+int possion()
 {
-	int i;
-	int x;
-	double a;
-	double b;
-	double u;
-
-	a = exp(-lambda);
-	i = 0;
-	b = 1.0;
-	do{
-		u = uniform(0.0, 1.0, s);
-		b *= u;
-		i++;
-	}while(b >= a);
-	x = i - 1;
-	return(x);
+　　int lambda=320,k=0;
+　　long double p=1.0;
+　　long double l=exp(-lambda);
+　　double u=U_Random();
+　　double F=l;
+　　while(u>=F)
+　　{
+　　　　k++;
+　　　　l*=(double)lambda/k;
+　　　　F+=l;
+　　}
+　　return k;
+}
+double U_Random()
+{
+　　return (double)rand()/RAND_MAX;
 }
